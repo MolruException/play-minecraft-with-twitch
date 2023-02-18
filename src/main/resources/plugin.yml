@@ -1,0 +1,7 @@
+name: PlayMinecraftWithTwitch
+version: '${version}'
+main: com.molruexception.pmwt.BukkitBootstrap
+api-version: 1.19
+authors: [ Lede(MolruException) ]
+description: How about playing Minecraft with command only on Twitch?
+website: https://github.com/MolruException/play-minecraft-with-twitch

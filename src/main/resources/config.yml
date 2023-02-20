@@ -1,0 +1,9 @@
+# https://dev.twitch.tv/console/apps
+twitch:
+  client-id: ""
+  client-secret: ""
+  channel: "" # https://www.twitch.tv/<channel>
+
+modules:
+  minecraft-to-twitch-chat-bridge: true
+  twitch-to-minecraft-chat-bridge: true

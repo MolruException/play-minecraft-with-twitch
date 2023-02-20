@@ -10,6 +10,7 @@ import com.github.twitch4j.chat.events.channel.ChannelMessageEvent;
 import com.github.twitch4j.helix.TwitchHelix;
 import com.github.twitch4j.helix.TwitchHelixBuilder;
 import com.molruexception.pmwt.api.PlayMinecraftWithTwitch;
+import com.molruexception.pmwt.twitch.token.TwitchToken;
 import com.molruexception.pmwt.twitch.token.TwitchTokenManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -44,7 +45,12 @@ public class BukkitBootstrap extends JavaPlugin {
 
         // Load Application token
         TwitchTokenManager.registerApplicationToken(this);
-
+        final TwitchToken token = TwitchTokenManager.getApplicationToken();
+        if (token == null) {
+            logger.warn("Cloud not Load ApplicationToken. Shutdown Server.");
+            Bukkit.shutdown();
+            return;
+        }
 
         // Create Twitch Client
         long ms = System.currentTimeMillis();

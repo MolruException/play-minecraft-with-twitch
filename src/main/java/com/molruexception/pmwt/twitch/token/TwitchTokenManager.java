@@ -28,6 +28,8 @@ public class TwitchTokenManager {
     private static final Map<String, TwitchToken> userToken = Maps.newConcurrentMap();
 
     public static void registerApplicationToken(@NotNull BukkitBootstrap plugin) {
+        long ms = System.currentTimeMillis();
+
         final Logger logger = PlayMinecraftWithTwitch.getLogger();
         final String cachePath = plugin.getDataFolder().getAbsolutePath() + "/cache/application.json";
         final TwitchToken token = new Mson<>(cachePath, ApplicationToken.class).read().getData();
@@ -72,6 +74,8 @@ public class TwitchTokenManager {
             applicationToken = token;
             logger.info("Find ApplicationToken from Cache : " + applicationToken);
         }
+
+        logger.info(String.format("Application token load complete. ( %d ms )", System.currentTimeMillis() - ms));
     }
 
     public static void registerUserToken(@NotNull BukkitBootstrap plugin, @NotNull Player player) {

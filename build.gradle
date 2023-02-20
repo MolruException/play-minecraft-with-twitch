@@ -16,6 +16,7 @@ dependencies {
 
     // twitch
     implementation 'com.github.twitch4j:twitch4j:1.14.0'
+    implementation group: 'com.github.philippheuer.events4j', name: 'events4j-handler-simple', version: '0.9.8'
 
     // minecraft
     compileOnly 'org.spigotmc:spigot-api:1.19.3-R0.1-SNAPSHOT'
